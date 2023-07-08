@@ -10,7 +10,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
     {options.map((option, index) => (
       <FeedbackBtnItem key={index}>
         <FeedbackBtn onClick={onLeaveFeedback} name={option}>
-          {option.replace(option[0], option[0].toUpperCase())}
+          {option}
         </FeedbackBtn>
       </FeedbackBtnItem>
     ))}
@@ -18,6 +18,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
